@@ -4,6 +4,8 @@
 # Commands:
 #   None
 
+require('newrelic')
+
 backlogUrl = 'https://reclick.backlog.jp/'
 
 module.exports = (robot) ->
