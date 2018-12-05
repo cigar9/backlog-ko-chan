@@ -30,7 +30,19 @@ module.exports = (robot) ->
       if body.content.comment?.id?
         url += "#comment-#{body.content.comment.id}"
 
-      message = "#{body.createdUser.name}さんが *#{label}* しました。\n"
+      notifications = "#{body.notifications}"
+      names = []
+      createNames = (data) ->
+        for k of data
+          names.push '@' + data[k].user.name
+        return
+      createNames notifications
+      name = names.join(' ')
+      message = ""
+
+      if notifications.length > 0
+        message += "#{name}"
+      message += "#{body.createdUser.name}さんが *#{label}* しました。\n"
       message += "[#{body.project.projectKey}-#{body.content.key_id}] - "
       message += "#{body.content.summary}\n>>> "
       if body.content.comment?.content?
