@@ -40,8 +40,7 @@ module.exports = (robot) ->
       name = names.join(' ')
       message = ""
 
-      if notifications.length > 0
-        message += "#{name}"
+      message += "#{name} \n"
       message += "#{body.createdUser.name}さんが *#{label}* しました。\n"
       message += "[#{body.project.projectKey}-#{body.content.key_id}] - "
       message += "#{body.content.summary}\n>>> "
