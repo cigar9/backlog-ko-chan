@@ -35,7 +35,8 @@ module.exports = (robot) ->
       # notificatonに通知したい人がいればその名前をメンションする
       if body.notifications.length > 0
         for a in body.notifications
-          console.log a.user.name
+          if a.user.name == '中川 秀一'
+            a.user.name == 's_nakagawa'
           message += "@#{a.user.name} "
 
       message += "\n *Backlog#{label}* \n"
