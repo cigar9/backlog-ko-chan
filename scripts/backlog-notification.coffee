@@ -40,7 +40,7 @@ module.exports = (robot) ->
       name = names.join(' ')
       message = ""
 
-      message += "#{body.notifications} \n"
+      message += "#{body.notifications[0].user.name} \n"
       message += "#{body.createdUser.name}さんが *#{label}* しました。\n"
       message += "[#{body.project.projectKey}-#{body.content.key_id}] - "
       message += "#{body.content.summary}\n>>> "
