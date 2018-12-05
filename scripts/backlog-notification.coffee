@@ -42,7 +42,7 @@ module.exports = (robot) ->
       message += "\n *Backlog#{label}* \n"
       message += "[#{body.project.projectKey}-#{body.content.key_id}] - "
 
-      message += "#{body.content.summary}"
+      message += "#{body.content.summary} \n>>>"
 
       if body.content.comment?.content?
         message += "#{body.content.comment.content}\n"
