@@ -7,7 +7,7 @@
 backlogUrl = 'https://reclick.backlog.jp/'
 
 module.exports = (robot) ->
-  robot.router.post "/test/:room/", (req, res) ->
+  robot.router.post "/test/", (req, res) ->
     { room } = req.params
     { body } = req
     try
