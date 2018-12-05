@@ -30,15 +30,20 @@ module.exports = (robot) ->
       if body.content.comment?.id?
         url += "#comment-#{body.content.comment.id}"
 
-      notifications = "#{body.notifications}"
-      names = []
-      createNames = (data) ->
-        for k of data
-          names.push '@' + data[k].user.name
-        return
-      createNames notifications
-      name = names.join(' ')
+      #      notifications = "#{body.notifications}"
+      #      names = []
+      #      createNames = (data) ->
+      #        for k of data
+      #          names.push '@' + data[k].user.name
+      #        return
+      #      createNames notifications
+      #      name = names.join(' ')
       message = ""
+      
+      if body.notifications.length > 0
+        message += "_to "
+        for a in body.notifications
+          message += "#{a.user.name}"
 
       message += "#{body.notifications[0].user.name} \n"
       message += "#{body.createdUser.name}さんが *#{label}* しました。\n"
