@@ -13,36 +13,35 @@ module.exports = (robot) ->
     try
       switch body.type
         when 1
-          label = '課題を追加'
+          label = 'に課題が追加されました。'
         when 2, 3
-          label = '課題を更新'
+          label = 'の課題が更新されました。'
         when 5
-          label = 'wikiを追加'
+          label = 'にwikiが追加されました。'
         when 6
-          label = 'wikiを更新'
+          label = 'のwikiが更新されました。'
         when 8
-          label = 'ファイルを追加'
+          label = 'にファイルを追加されました。'
         when 9
-          label = 'ファイルを更新'
+          label = 'のファイルを更新されました。'
         else
 
       url = "#{backlogUrl}view/#{body.project.projectKey}-#{body.content.key_id}"
       if body.content.comment?.id?
         url += "#comment-#{body.content.comment.id}"
 
-      message = "*Backlog #{label}*\n"
-      message += "[#{body.project.projectKey}-#{body.content.key_id}] - "
+      message = ""
 
-      # ここでチケットを作った作成者のユーザ名がbyの後ろについてしまい、知らせたい人じゃない人にメンションが飛んでしまいがち
-      # message += "#{body.content.summary} _by #{body.createdUser.name}_\n>>> "
-      message += "#{body.content.summary}"
-
-      # notificatonに通知したい人がいればその名前をメンションしてくれる
+      # notificatonに通知したい人がいればその名前をメンションする
       if body.notifications.length > 0
-        message += "_to "
         for a in body.notifications
           console.log a.user.name
-          message += "#{a.user.name} "
+          message += "@#{a.user.name} "
+
+      message += "\n *Backlog#{label}* \n"
+      message += "[#{body.project.projectKey}-#{body.content.key_id}] - "
+
+      message += "#{body.content.summary}"
 
       if body.content.comment?.content?
         message += "#{body.content.comment.content}\n"
@@ -54,7 +53,7 @@ module.exports = (robot) ->
       else
         robot.messageRoom room, "Backlogのデータがなんか取れないです。"
         res.end "Error"
-        
+
     catch error
       robot.send
       res.end "Error"
