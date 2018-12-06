@@ -14,3 +14,6 @@ module.exports = (robot) ->
         backlog.getIssues("statusId": ["1", "2", "3"], "assigneeId": [result])
         .then (messages) ->
           msg.send messages.join("\n")
+          
+  robot.respond /うわぁ$/, (msg) ->
+    msg.send msg
