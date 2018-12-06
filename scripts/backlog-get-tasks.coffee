@@ -24,5 +24,5 @@ module.exports = (robot) ->
         backlog.getIssues("statusId": ["1", "2", "3"], "assigneeId": [result])
         .then (messages) ->
           msg.send messages.join("\n")
-      .catch(error) ->
-        msg.send "その人は居ないみたい…"
+    .catch(error) ->
+      msg.send "その人は居ないみたい…"
