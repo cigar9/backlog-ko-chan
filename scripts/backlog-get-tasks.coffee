@@ -15,7 +15,7 @@ module.exports = (robot) ->
   #        .then (messages) ->
   #          msg.send messages.join("\n")
 
-  robot.respond /(.+)の課題$/, (msg) ->
+  robot.respond /(.+)の課題/, (msg) ->
     name = msg.match[1]
     if name == '自分' || name == 'おれ' || name == '俺' || name == 'オレ' || name == '私' || name == 'わたし' || name == 'ワタシ'
       name = msg.message.user.name
@@ -23,4 +23,6 @@ module.exports = (robot) ->
       .then (result) ->
         backlog.getIssues("statusId": ["1", "2", "3"], "assigneeId": [result])
         .then (messages) ->
-          msg.send messages.join("\n\n")
+          msg.send messages.join("\n")
+      .catch(error) ->
+        msg.send "その人は居ないみたい…"
