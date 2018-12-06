@@ -42,10 +42,10 @@ module.exports = (robot) ->
           message += "@#{a.user.name} "
 
       message += "\n *Backlog#{label}* \n"
-      message += "[#{body.project.projectKey}-#{body.content.key_id}] - "
+      message += "_[#{body.project.projectKey}-#{body.content.key_id}] - "
 
-      message += "#{body.content.summary} \n"
-      message += "#{url} \n>>>"
+      message += "#{body.content.summary}_ \n"
+      message += "_#{url}_ \n>>>"
 
       if body.content.comment?.content?
         message += "#{body.content.comment.content}\n"
