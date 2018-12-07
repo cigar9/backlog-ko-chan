@@ -21,6 +21,8 @@ module.exports = (robot) ->
       name = msg.message.user.name
       if name == "s_nakagawa"
         name = "中川 秀一"
+    if name == "s_nakagawa"
+      name = "中川 秀一"
 
     backlog.getUser(name)
       .then (result) ->
