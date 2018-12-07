@@ -20,7 +20,7 @@ module.exports = (robot) ->
     if name == '自分' || name == 'おれ' || name == '俺' || name == 'オレ' || name == '私' || name == 'わたし' || name == 'ワタシ'
       name = msg.message.user.name
       if name == "s_nakagawa"
-        name = "中川 秀一" 
+        name = "中川 秀一"
 
     backlog.getUser(name)
       .then (result) ->
@@ -29,3 +29,13 @@ module.exports = (robot) ->
           msg.send "#{name}さんの課題だよー \n>>>" + messages.join("\n")
     .catch(error) ->
       msg.send "その人は居ないみたい…"
+
+  robot.respond /(.+)のテスト/, (msg) ->
+    name = msg.match[1]
+    if name == '自分' || name == 'おれ' || name == '俺' || name == 'オレ' || name == '私' || name == 'わたし' || name == 'ワタシ'
+      name = msg.message.user.name
+      if name == "s_nakagawa"
+        name = "中川 秀一"
+    if name == "s_nakagawa"
+      name = "中川 秀一"
+    msg.send name
