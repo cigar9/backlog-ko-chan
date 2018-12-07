@@ -19,8 +19,9 @@ module.exports = (robot) ->
     name = msg.match[1]
     if name == '自分' || name == 'おれ' || name == '俺' || name == 'オレ' || name == '私' || name == 'わたし' || name == 'ワタシ'
       name = msg.message.user.name
-    if name == 's_nakagawa'
-      name = "中川 秀一"
+      if name == "s_nakagawa"
+        name = "中川 秀一" 
+
     backlog.getUser(name)
       .then (result) ->
         backlog.getIssues("statusId": ["1", "2", "3"], "assigneeId": [result])
