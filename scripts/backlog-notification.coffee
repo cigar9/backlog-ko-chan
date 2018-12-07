@@ -45,7 +45,7 @@ module.exports = (robot) ->
       message += "_[#{body.project.projectKey}-#{body.content.key_id}] - "
 
       message += "#{body.content.summary}_ \n"
-      message += "_#{url}_ \n>>>"
+      message += "_ #{url} _ \n>>>"
 
       if body.content.comment?.content?
         message += "#{body.content.comment.content}\n"
