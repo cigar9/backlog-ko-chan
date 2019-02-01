@@ -39,6 +39,8 @@ module.exports = (robot) ->
         for a in body.notifications
           if a.user.name == '中川 秀一'
             a.user.name = 's_nakagawa'
+          if a.user.name == '橋爪 直人'
+            a.user.name = 'hashizume'
           message += "@#{a.user.name} "
 
       message += "\n *Backlog#{label}* \n"
