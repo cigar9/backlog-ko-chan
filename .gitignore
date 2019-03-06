@@ -3,3 +3,4 @@ node_modules
 .hubot_history
 .idea
 newrelic_agent.log
+.env
