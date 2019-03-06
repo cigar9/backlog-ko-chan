@@ -1,5 +1,4 @@
 require('newrelic')
-require('dotenv')
 
 answer = process.env.HUBOT_MESSAGE
 
