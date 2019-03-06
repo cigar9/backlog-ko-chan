@@ -4,3 +4,5 @@ node_modules
 .idea
 newrelic_agent.log
 .env
+scripts/backlog.coffee
+scripts/backlog-get-tasks.coffee

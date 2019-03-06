@@ -6,7 +6,7 @@
 
 require('newrelic')
 
-backlogUrl = 'https://reclick.backlog.jp/'
+backlogUrl = process.env.HUBOT_BACKLOG_URL
 
 module.exports = (robot) ->
   robot.router.post "/test/:room", (req, res) ->
