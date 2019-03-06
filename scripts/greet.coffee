@@ -1,6 +1,8 @@
 require('newrelic')
 require('dotenv')
 
+answer = process.env.MESSAGE
+
 module.exports = (robot) ->
   robot.respond /おはよう/i, (msg) ->
-    msg.send process.env.MESSAGE
+    msg.send "おはようございます！　あと#{answer}"
