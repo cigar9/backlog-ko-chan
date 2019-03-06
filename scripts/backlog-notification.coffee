@@ -52,7 +52,6 @@ module.exports = (robot) ->
       if body.content.comment?.content?
         message += "#{body.content.comment.content}\n"
 
-
       if message?
         robot.messageRoom room, message
         res.end "OK"

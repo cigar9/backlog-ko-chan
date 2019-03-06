@@ -45,5 +45,4 @@ class Backlog
 
         resolve messages
 
-
 module.exports = Backlog
